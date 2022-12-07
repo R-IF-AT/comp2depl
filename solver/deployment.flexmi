@@ -1,0 +1,15 @@
+<deployment title="TopComponent">
+	<device name="Intel-i5">
+		<component name = "Parse"/>
+		<component name = "MLPrediction"/>
+	</device>
+	<device name="Nvidia-RTX2070">
+		<component name = "MLLearn"/>
+		<component name = "MLTrain"/>
+	</device>
+	<device name="IBM-Power10">
+		<component name = "MySQL"/>
+	</device>
+	<connection from="Intel-i5" to="Nvidia-RTX2070"/>
+	<connection from="Intel-i5" to="IBM-Power10"/>
+</deployment>
