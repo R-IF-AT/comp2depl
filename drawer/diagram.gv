@@ -1,0 +1,43 @@
+digraph G {
+	graph [fontname="Arial",compound=true,rankdir="LR",ranksep="1", nodesep="0.15"]
+	node[fontname="Arial",style="filled",fillcolor="azure",shape="box"]
+	edge[arrowhead=none]
+
+	subgraph cluster_all{
+	    label="DEPLOYMENT OF THE SYSTEM";
+        labeljust=l;
+        fontsize=12;
+    	subgraph cluster_n1 {
+            label="<<device>>\nIntel-i5";
+            labeljust=c;
+            fontsize=14;
+            bgcolor = "wheat";
+            dummy_n1[margin=0,width=0,height=0,style="invis",fontsize=0]
+    	    n2[label="<<artifact>>\nParse"]
+    	    n3[label="<<artifact>>\nMLLearn"]
+    	    n4[label="<<artifact>>\nMLPrediction"]
+        }
+    	subgraph cluster_n5 {
+            label="<<device>>\nNvidia";
+            labeljust=c;
+            fontsize=14;
+            bgcolor = "wheat";
+            dummy_n5[margin=0,width=0,height=0,style="invis",fontsize=0]
+    	    n6[label="<<artifact>>\nMLTrain"]
+        }
+    	subgraph cluster_n7 {
+            label="<<device>>\nIBM-Power";
+            labeljust=c;
+            fontsize=14;
+            bgcolor = "wheat";
+            dummy_n7[margin=0,width=0,height=0,style="invis",fontsize=0]
+    	    n8[label="<<artifact>>\nMLSQL"]
+        }
+	}
+	
+	dummy_n1->dummy_n5[ltail=cluster_n1,lhead=cluster_n5]
+	dummy_n5->dummy_n7[ltail=cluster_n5,lhead=cluster_n7]
+	
+}
+
+

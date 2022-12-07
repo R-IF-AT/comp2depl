@@ -1,0 +1,22 @@
+@namespace(uri="psl", prefix="")
+package psl;
+
+class Deployment {
+    attr String title;
+    val Device[*] devices;
+    val Connection[*] connections;
+}
+
+class Device {
+	attr String name;
+	val Component[*] components;
+}
+
+class Component {
+	attr String name;
+}
+
+class Connection {
+	ref Device from;
+	ref Device to;
+}

@@ -1,0 +1,41 @@
+[*Generates a Graphviz graph for the project plan*]
+digraph G {
+	graph [fontname="Arial",compound=true,rankdir="LR",ranksep="1", nodesep="0.15"]
+	node[fontname="Arial",style="filled",fillcolor="azure",shape="box"]
+	edge[arrowhead=none]
+
+	[*Create a cluster for each device*]
+	subgraph cluster_all{
+	    label="[%=Deployment.all.first.title%]";
+        labeljust=l;
+        fontsize=12;
+    	[%for (dev in Device.all){%]
+    	subgraph cluster_[%=dev.getNodeId()%] {
+            label="<<device>>\n[%=dev.name%]";
+            labeljust=c;
+            fontsize=14;
+            bgcolor = "wheat";
+            dummy_[%=dev.getNodeId()%][margin=0,width=0,height=0,style="invis",fontsize=0]
+            [*Create a node for each component*]
+            [%for (com in dev.components){%]
+    	    [%=com.getNodeId()%][label="<<artifact>>\n[%=com.name%]"]
+    	    [%}%]
+        }
+    	[%}%]
+	}
+	
+	[*Link the device nodes*]
+	[%for (con in Connection.all){%]
+	dummy_[%=con.from.getNodeId()%]->dummy_[%=con.to.getNodeId()%][ltail=cluster_[%=con.from.getNodeId()%],lhead=cluster_[%=con.to.getNodeId()%]]
+	[%}%]
+	
+}
+
+[*Uncomment to see the generated Graphviz code*]
+[%out.toString().println();%]
+
+[%
+operation Any getNodeId() {
+	return "n" + DeploymentModel.allInstances.indexOf(self);
+}
+%]
