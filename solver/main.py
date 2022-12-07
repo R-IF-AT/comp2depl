@@ -77,7 +77,7 @@ data.load(filename='h.csv', format='set', set=model.h)
 
 
 # Load of parameters
-data.load(filename='H_Params.csv', index=model.h, param = [model.S,model.C])
+data.load(filename='H_params.csv', index=model.h, param = [model.S,model.C])
 data.load(filename='Loads.csv', param=model.L,format='array')
 data.load(filename='Implementability.csv', param=model.I,format='array')
 
