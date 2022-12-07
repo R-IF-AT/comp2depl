@@ -1,0 +1,6 @@
+t,Nvidia-RTX2070,Intel-i5,IBM-Power10,Nvidia-Titan,Intel-i7
+Parse,0,5,0,0,5
+MLTrain,2,5,0,2,5
+MLLearn,2,0,0,2,0
+MLPrediction,4,3,0,4,3
+MySQL,0,0,20,0,0

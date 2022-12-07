@@ -1,0 +1,6 @@
+Hardware,Size,Cost,type
+Nvidia-RTX2070,4,5,GPU
+Intel-i5,10,6,CPU
+IBM-Power10,30,8,Database
+Nvidia-Titan,6,6,GPU
+Intel-i7,7,10,CPU
