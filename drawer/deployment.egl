@@ -1,4 +1,4 @@
-[*Generates a Graphviz graph for the project plan*]
+[*Generates a Graphviz graph of the deployment diagram*]
 digraph G {
 	graph [fontname="Arial",compound=true,rankdir="LR",ranksep="1", nodesep="0.15"]
 	node[fontname="Arial",style="filled",fillcolor="azure",shape="box"]
